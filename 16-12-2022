@@ -1,0 +1,19 @@
+What is the difference between truncate, delete, drop?
+Truncate - Truncate removes all the entries from the specified table, but keeps the table. It is a Data Definition Language(DDL) query command.
+Delete - Delete removes all the entries that fulfill the constraints provided in the query but other entries along with table structure remain unchanged. It is a Data Manipulation Language(DML) query command.
+Drop - Drop deletes the whole table along with all the entries in it. It is a Data Definition Language(DDL) query command.
+
+What are alias in MySQL?   
+Alias in SQL is a name given to a table, or a column in the table to save it temporarily. An alias is available to be used only in the query it is specified in. once the query goes out of operation, an alias is erased.
+
+How do you display even rows of the any table?
+Select * from employees where mod(f_name,2)=0;
+
+How can you remove duplicates from a table(distinct and other way)
+Select distinct(f_name) from employees;
+Select f_name from employees group by (f_name);
+
+How you can find 5th max salary?(Do it by all 3 ways)
+Select distinct(salary) from employees order by(salary) desc  limit 1 offset 4 ;
+Select salary from employees group by(salary) order by(salary) desc limit1 offset 4 ;
+Select dense_rank() over(order by salary desc) from employees limit 1 offset 4;
